@@ -2,7 +2,7 @@
 Python script to manage tags encoded in the filename.
 
 A tag is kept in a list of keywords enclosed in '[' and ']'
-at the end of the filename.
+at the end of the filename - just before the file extension.
 
 Tags may be used to organize the file and to easier locate it.
 
