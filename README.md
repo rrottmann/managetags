@@ -71,6 +71,7 @@ $ ./managetags.py --path "test [170106].txt" --addtags 'foo,bar' | sh -x
 + mv 'test [170106].txt' 'test [170106 bar foo].txt'
 $ ls -al test*
 -rw-r--r--. 1 root root 0 Jan  6 06:14 test [170106 bar foo].txt
+~~~
 
  * Now add the tag 'baz' but we also want to remove the ctime tag. We want also debug output
 
