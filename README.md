@@ -46,7 +46,7 @@ touch test.txt
 mv "test.txt" "test [170106].txt"
 ~~~
 
- * As you are pleased with the result, we now execute the generated commands.
+ * As you are pleased with the result, we now execute the generated command.
 
 ~~~
 $ ./managetags.py --path test.txt | sh -x
@@ -64,7 +64,7 @@ $ ./managetags.py --path "test [170106].txt" --addtags 'foo,bar'
 mv "test [170106].txt" "test [170106 bar foo].txt"
 ~~~
 
- * As you are pleased with the result, we now execute the generated commands.
+ * As you are pleased with the result, we now execute the generated command.
 
 ~~~
 $ ./managetags.py --path "test [170106].txt" --addtags 'foo,bar' | sh -x
@@ -84,7 +84,7 @@ $ ./managetags.py --path "test [170106 bar foo].txt" --addtags 'baz' --removetag
 mv "test [170106 bar foo].txt" "test [bar baz foo].txt"
 ~~~
 
- * As we are happy with it, we execute the generated commands. Note the debug output gets ignored.
+ * As we are happy with it, we execute the generated command. Note the debug output gets ignored.
 
 ~~~
 ./managetags.py --path "test [170106 bar foo].txt" --addtags 'baz' --removetags '170106' --notagctime --debug | sh -x
