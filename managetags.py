@@ -70,7 +70,13 @@ def _manage_tags(path, addtags=None, removetags=None, tagctime=True, sorttags=Tr
         if sorttags:
             logging.debug('Sorting tags.')
             tags.sort()
-        newfname = m.group('name').strip() + ' [' + ' '.join(newtags)+']'+m.group('ext').strip()
+        if len(tags) == 0:
+            if m.group('ext').strip():
+                newfname = m.group('name').strip() + m.group('ext').strip()
+            else:
+                newfname = m.group('name').strip()
+        else:
+            newfname = m.group('name').strip() + ' [' + ' '.join(newtags)+']'+m.group('ext').strip()
     else:
         logging.debug('The file is tagged for the first time.')
         ext = '.' + fname.split('.')[-1]
