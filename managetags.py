@@ -62,10 +62,13 @@ def _manage_tags(path, addtags=None, removetags=None, tagctime=True, sorttags=Tr
                 if tag not in removetags:
                     logging.debug('Adding tag: ' + tag)
                     newtags.append(tag)
-        for tag in removetags:
-            if tag in newtags:
-                logging.debug('Removing tag: ' + tag)
-                newtags.remove(tag)
+        if removetags == ['*']:
+            newtags=[]
+        else:
+            for tag in removetags:
+                if tag in newtags:
+                    logging.debug('Removing tag: ' + tag)
+                    newtags.remove(tag)
         tags = newtags
         if sorttags:
             logging.debug('Sorting tags.')
@@ -106,7 +109,7 @@ if __name__ == "__main__":
                         help='Comma seperated list of tags to add.',
                         default=None)
     parser.add_argument('--removetags',
-                        help='Comma seperated list of tags to remove.',
+                        help='Comma seperated list of tags to remove. * to remove all.',
                         default=None)
     args = parser.parse_args()
     if args.quiet:

@@ -103,3 +103,22 @@ mv "test [170106 bar foo].txt" "test [bar baz foo].txt"
 $ ls -al test*
 -rw-r--r--. 1 root root 0 Jan  6 06:14 test [bar baz foo].txt
 ~~~
+
+## Remove tags from file
+
+ * We now want to remove the tags from our example file
+
+~~~
+./managetags.py --path "test [bar baz foo].txt" --removetags 'bar,baz,foo' --notagctime
+mv "test [bar baz foo].txt" "test.txt"
+~~~
+
+ * Please note that the original name gets restored, when all tags are removed.
+
+ * You could also use the removetags with '*' to remove all tags:
+
+~~~
+./managetags.py --path "test [bar baz foo].txt" --removetags '*' --notagctime
+mv "test [bar baz foo].txt" "test.txt"
+~~~
+
